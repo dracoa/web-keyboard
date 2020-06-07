@@ -1,0 +1,11 @@
+<div class="btn-panel">
+  <form [formGroup]="form">
+    <input type="text" formControlName="display">
+    <select formControlName="mode">
+      <option value="single">Single</option>
+      <option value="interval">Interval</option>
+      <option value="long_press">Long Press</option>
+    </select>
+  </form>
+  <button (click)="onClose()">Close</button>
+</div>

@@ -1,0 +1,4 @@
+<div class="btn-panel" [class.firing]="firing" (click)="onPress()">
+  <h1>{{ button.display }} <span class="info">({{ code }})</span></h1>
+  <span class="info">{{ button.mode | uppercase }} <span *ngIf="button.mode === 'interval'">[{{ button.interval }}]</span></span>
+</div>

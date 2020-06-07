@@ -1,15 +1,23 @@
-<ng-container *ngIf="supported; else notsupported">
-  <button [disabled]="connected" (click)="connect()">Connect</button>
-  <button [disabled]="!connected" (click)="disconnect()">Disconnect</button>
-  <div>
-  <ng-container *ngIf="connected">
-    <router-outlet></router-outlet>
-  </ng-container>
+<div *ngIf="supported; else notsupported">
+  <div style="display: flex; height: 25px;">
+    <select style="flex-grow: 2" [(ngModel)]="selectedProfile" (change)="selectProfile($event)" >
+      <option [ngValue]="null">-- Select Profile --</option>
+      <option *ngFor="let p of profiles$ | async" [ngValue]="p">{{ p.name }}</option>
+    </select>
+    <button *ngIf="!connected" (click)="connect()">Connect</button>
+    <button *ngIf="connected" (click)="disconnect()">Disconnect</button>
   </div>
-</ng-container>
-<app-key text="1"></app-key>
+  <div class="grid-container" *ngIf="selectedProfile">
+    <app-button *ngFor="let btn of selectedProfile.buttons; let idx = index" [button]="btn">
+      {{ btn.display }}
+    </app-button>
+  </div>
+</div>
 <ng-template #notsupported>
+  <div class="not-supported">
   Web Serial Not Supported
+  </div>
 </ng-template>
+
 
 

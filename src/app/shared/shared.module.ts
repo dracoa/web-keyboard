@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { KeyComponent } from './key.component';
+import { LongPressDirective } from './long-press.directive';
 
 
 
 @NgModule({
-    declarations: [KeyComponent],
+    declarations: [LongPressDirective],
     exports: [
-        KeyComponent
+        LongPressDirective
     ],
     imports: [
         CommonModule
     ]
 })
-export class KeyModule { }
+export class SharedModule { }

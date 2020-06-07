@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {Diablo3Module} from './diablo3/diablo3.module';
 import {CommonModule} from '@angular/common';
-import {KeyModule} from './key/key.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ButtonModule} from './button/button.module';
+import {ProfileModule} from './profile/profile.module';
+import {MonacoEditorModule} from 'ngx-monaco-editor';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,10 @@ import {KeyModule} from './key/key.module';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    Diablo3Module,
-    KeyModule
+    ReactiveFormsModule,
+    ButtonModule,
+    FormsModule,
+    ProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

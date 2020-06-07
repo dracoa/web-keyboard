@@ -1,0 +1,17 @@
+.not-supported {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  height: 100vh;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 5px 5px;
+  grid-template-areas: ". . . .";
+  height: calc(100vh - 45px);
+  padding: 10px;
+}

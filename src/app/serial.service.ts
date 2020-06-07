@@ -17,8 +17,12 @@ export class SerialService implements OnDestroy {
   }
 
   async connect() {
-    this.port = await (navigator as any).serial.requestPort();
-    await this.port.open({baudrate: 9600});
+    try {
+      this.port = await (navigator as any).serial.requestPort();
+      await this.port.open({baudrate: 9600});
+    } catch (error) {
+      console.log(error);
+    }
     this.connect$.next(true);
   }
 
@@ -30,6 +34,14 @@ export class SerialService implements OnDestroy {
     }else{
       console.log(code);
     }
+  }
+
+  keyPress(code: number) {
+    this.send(code);
+  }
+
+  keyRelease(code: number) {
+    this.send(code + 128);
   }
 
   async disconnect() {
