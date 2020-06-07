@@ -1,0 +1,12 @@
+<div class="grid-container">
+  <div><button (mousedown)="press()" (mouseup)="release()">{{ text }}</button></div>
+  <div><button (click)="toggleLock()">{{ this.mode === 'lock' ? 'REL' : 'LCK'}}</button></div>
+  <div><button (click)="toggleInterval()">{{ this.mode === 'interval' ? 'stop' : interval}}</button></div>
+  <div>
+    <button (click)="interval=1">1</button>
+    <button (click)="addInterval(1)">+1</button>
+    <button (click)="addInterval(5)">+5</button>
+    <button (click)="addInterval(10)">+10</button>
+  </div>
+ </div>
+
